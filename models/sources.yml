@@ -5,3 +5,10 @@ sources:
     schema: POSTGRES_RDS_S3
     tables:
     - name: ZARA_PRODUCTS
+
+  - name: DIM_PR
+    database: DEV_DB
+    schema: ZARA_TRANSFORMATION
+    tables: 
+    - name: ZARA_INTERMEDIATE
+ 
