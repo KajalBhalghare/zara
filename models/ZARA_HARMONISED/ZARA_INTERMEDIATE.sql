@@ -13,7 +13,6 @@ select distinct
     description,
     price as price_usd,
     price * 83 as price_inr,
-
     terms,
     section,
     case
@@ -177,6 +176,7 @@ select distinct
     _fivetran_deleted,
     _fivetran_synced
 from {{ source("SCHEMA_1", "ZARA_PRODUCTS") }}
+
 {% if is_incremental() %}
 
     -- this filter will only be applied on an incremental run
