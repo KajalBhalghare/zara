@@ -177,15 +177,4 @@ select distinct
     _fivetran_synced
 from {{ source("SCHEMA_1", "ZARA_PRODUCTS") }}
 
-{% if is_incremental() %}
 
-    -- this filter will only be applied on an incremental run
-    -- (uses >= to include records whose timestamp occurred since the last run of this
-    -- model)
-    -- (If event_time is NULL or the table is truncated, the condition will always be
-    -- true and load all records)
-    where
-        _fivetran_synced
-        >= (select coalesce(max(_fivetran_synced), '2025-02-10') from {{ this }})
-
-{% endif %}
