@@ -1,0 +1,7 @@
+version: 2
+sources:
+  - name: SCHEMA_1
+    database: AWS_RDS_RAW
+    schema: POSTGRES_RDS_S3
+    tables:
+    - name: ZARA_PRODUCTS
